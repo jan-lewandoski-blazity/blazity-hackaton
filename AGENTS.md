@@ -2,10 +2,12 @@
 
 ## What this repo is
 
-`blazity-hackaton` — an early-stage hackathon project. Today it is a scaffold:
-only README, LICENSE, and the Atlas AI workspace under `.ai/` exist; there is no
-application code yet. The intended product is an AI / agent application; concrete
-scope and tech stack are not yet decided. See `.ai/memory/` for stable context.
+`blazity-hackaton` – a hackathon project building an **AI SEO checker**: a web app
+where marketing/content teams submit content and the tool returns explainable,
+actionable SEO fixes (not a vague score). Stack: **Next.js (App Router) + Vercel AI
+SDK + TypeScript, deployed on Vercel**. No application code exists yet – the repo is
+still a scaffold (README, LICENSE, and the Atlas workspace under `.ai/`). See
+`.ai/memory/` for stable context: product, architecture, stack, vocabulary.
 
 ## Structure
 
@@ -16,9 +18,15 @@ scope and tech stack are not yet decided. See `.ai/memory/` for stable context.
 
 ## Working rules
 
-- No stack is chosen yet — confirm language, framework, and run/test/build
-  commands before assuming them. Update `.ai/memory/stack.md` once decided.
-- There are no project-specific safe commands yet beyond Atlas tooling:
+- Stack is decided (Next.js + Vercel AI SDK + TS on Vercel) but not yet scaffolded.
+  No `package.json` exists, so do not assume `dev`/`build`/`test` scripts – confirm
+  the package manager and commands once the app lands, then update
+  `.ai/memory/stack.md`.
+- AI model/API keys are server-only. Never call a model provider from the browser.
+- Treat AI output as a draft to be checked – surface reasoning, don't trust blindly.
+- When wiring the Vercel AI SDK or Next.js, prefer the plugin's official docs over
+  training memory (APIs change). Default model: latest Claude via the AI SDK.
+- Only Atlas tooling is a known safe command so far:
   `npx --yes @blazity-atlas/core@latest doctor` checks workspace health.
 - Do not edit the `<!-- BEGIN/END ATLAS -->` managed block below by hand.
 - Keep durable docs depersonalized (see Atlas Documentation Rules below).
